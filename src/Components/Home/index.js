@@ -3,25 +3,24 @@ import React, { Component } from 'react'
 import css from '..//Home/index.css'
 import { v4 as uuidv4 } from 'uuid'
 import Tour from '../Tour'
+import Tab from '../Tab'
 
 const tabList = [
     {
         id: uuidv4(),
         tabName: 'Students',
-        category: 'Essentials',
+        category: 'Students',
     },
     {
         id: uuidv4(),
         tabName: 'Visitors',
-        category: 'Essentials',
+        category: 'Visitors',
     },
     {
         id: uuidv4(),
         tabName: 'New Movers',
-        category: 'Essentials',
+        category: 'New Movers',
     },
-
-
 ]
 
 const tourList = [
@@ -35,6 +34,7 @@ const tourList = [
         tourSalePrice: '$90',
         tourSaleEnd: '10/10/2020',
         tourSaleStart: '10/10/2020',
+        category: 'Students',
     },
     {
         id: uuidv4(),
@@ -46,6 +46,7 @@ const tourList = [
         tourSalePrice: '$90',
         tourSaleEnd: '10/10/2020',
         tourSaleStart: '10/10/2020',
+        category: 'Students',
     },
     {
         id: uuidv4(),
@@ -57,6 +58,7 @@ const tourList = [
         tourSalePrice: '$90',
         tourSaleEnd: '10/10/2020',
         tourSaleStart: '10/10/2020',
+        category: 'Students',
     },
     {
         id: uuidv4(),
@@ -68,6 +70,7 @@ const tourList = [
         tourSalePrice: '$90',
         tourSaleEnd: '10/10/2020',
         tourSaleStart: '10/10/2020',
+        category: 'Visitors',
     },
     {
         id: uuidv4(),
@@ -79,6 +82,7 @@ const tourList = [
         tourSalePrice: '$90',
         tourSaleEnd: '10/10/2020',
         tourSaleStart: '10/10/2020',
+        category: 'New Movers',
     },
     {
         id: uuidv4(),
@@ -90,18 +94,30 @@ const tourList = [
         tourSalePrice: '$90',
         tourSaleEnd: '10/10/2020',
         tourSaleStart: '10/10/2020',
+        category: 'New Movers',
     },
 
 ]
 
 export class Home extends Component {
     state = {
-        select: 'Students'
+        currentTab: tabList[0].category,
+        id: "",
     }
+
+    updateTab = (id) => {
+        this.setState({ currentTab: id })
+    }
+
+
+    changeTab = (id) => {
+        this.setState({
+            currentTab: tabList[0].id,
+        })
+    }
+
     render() {
-        const changeTab = () => {
-            console.log("cool")
-        }
+
         return (
             <div>
                 <div id="carouselExampleIndicators" class="carousel slide relative" data-bs-ride="carousel">
@@ -172,16 +188,16 @@ export class Home extends Component {
 
                 <div>
                     <div className='flex flex-row justify-center items-center my-3'>
-                    {tabList.map(eachitem => (
-                        <button onClick={changeTab} className='w-28 my-3'>{eachitem.tabName}</button>
-                    ))}
+                        {tabList.map(eachitem => (
+                            <Tab isTabActive={this.state.currentTab === eachitem.id} changeTab={this.changeTab} tabList={eachitem} key={eachitem.id} />
+                        ))}
                     </div>
 
                     <h1 className='text-xl font-medium mx-5 my-3'>Guides</h1>
 
                     <div className='flex flex-wrap mx-4'>
                         {tourList.map(eachitem => (
-                            <Tour tourList={eachitem}  key={eachitem.id}/>
+                            <Tour tourList={eachitem} key={eachitem.id} />
                         ))}
                     </div>
                 </div>
