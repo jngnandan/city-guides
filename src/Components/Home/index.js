@@ -4,6 +4,7 @@ import css from '..//Home/index.css'
 import { v4 as uuidv4 } from 'uuid'
 import Tour from '../Tour'
 import Tab from '../Tab'
+import { Oval } from 'react-loader-spinner';
 
 const tabList = [
     {
@@ -102,6 +103,8 @@ const tourList = [
 export class Home extends Component {
     state = {
         currentTab: tabList[0].category,
+        isLoading: true,
+        blogsData: '',
     }
 
     changeTab = (category) => {
@@ -116,12 +119,22 @@ export class Home extends Component {
         const response = await fetch('https://apis.ccbp.in/blogs')
         const data = await response.json()
         console.log(data)
+
+        const formattedData = data.map(eachItem => ({
+            id: eachItem.id,
+            title: eachItem.title,
+            imageUrl: eachItem.image_url,
+            avatarUrl: eachItem.avatar_url,
+            author: eachItem.author,
+            topic: eachItem.topic,
+        }))
+        this.setState({blogsData: formattedData, isLoading: false})
     }
 
     render(props) {
-        const { currentTab } = this.state
+        const { currentTab, isLoading, blogsData } = this.state
         const tourCategory = tourList.filter(eachitem => eachitem.category === currentTab)
-
+        console.log(isLoading)
 
         return (
             <div>
@@ -156,12 +169,32 @@ export class Home extends Component {
                     </div>
 
                     <h1 className='text-xl font-medium mx-5 my-3'>Guides</h1>
+                    
+                    {/* Spinner */}
+                    <div>
+                        {isLoading ? (
+                            // <Loader type="TailSpin" color="#00BFFF" height={50} width={50} />
+                            <div className="loader flex flex-row justify-center items-center h-50">
+                                <Oval
+                                    type="Circles"
+                                    color="#dc1c2c"
+                                    height={50}
+                                    width={100}
+                                //timeout={1000} //3 secs
+                                />
+                            </div>
+                        ) : (
+                            // blogsData.map(item => <BlogItem blogData={item} key={item.id} />)
+                                <div className='flex flex-wrap mx-4'>
+                                    {tourCategory.map(eachitem => (
+                                        <Tour tourList={eachitem} key={eachitem.id} />
+                                    ))}
+                                </div>
+                        )}
 
-                    <div className='flex flex-wrap mx-4'>
-                        {tourCategory.map(eachitem => (
-                            <Tour tourList={eachitem} key={eachitem.id} />
-                        ))}
                     </div>
+
+                    
                 </div>
 
                 <div>
