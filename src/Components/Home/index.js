@@ -109,76 +109,43 @@ export class Home extends Component {
         // console.log(category
     }
 
+    componentDidMount(){
+        this.getBlogsData()
+    }
+    getBlogsData = async () => {
+        const response = await fetch('https://apis.ccbp.in/blogs')
+        const data = await response.json()
+        console.log(data)
+    }
+
     render(props) {
         const { currentTab } = this.state
         const tourCategory = tourList.filter(eachitem => eachitem.category === currentTab)
-        console.log(tourCategory)
+
+
         return (
             <div>
-                <div id="carouselExampleIndicators" class="carousel slide relative" data-bs-ride="carousel">
-                    <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
-                        <button
-                            type="button"
-                            data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide-to="0"
-                            class="active"
-                            aria-current="true"
-                            aria-label="Slide 1"
-                        ></button>
-                        <button
-                            type="button"
-                            data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide-to="1"
-                            aria-label="Slide 2"
-                        ></button>
-                        <button
-                            type="button"
-                            data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide-to="2"
-                            aria-label="Slide 3"
-                        ></button>
-                    </div>
-                    <div class="carousel-inner relative w-full overflow-hidden">
-                        <div class="carousel-item active float-left w-full">
-                            <img
-                                src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp"
-                                class="block w-full"
-                                alt="Wild Landscape"
-                            />
+                {/* Header */}
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="http://unsplash.it/1200/400?gravity=center" alt="First slide"/>
                         </div>
-                        <div class="carousel-item float-left w-full">
-                            <img
-                                src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
-                                class="block w-full"
-                                alt="Camera"
-                            />
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="http://loremflickr.com/1200/400/Beach" alt="Second slide"/>
                         </div>
-                        <div class="carousel-item float-left w-full">
-                            <img
-                                src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp"
-                                class="block w-full"
-                                alt="Exotic Fruits"
-                            />
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="http://lorempixel.com/1200/400/nature" alt="Third slide"/>
                         </div>
                     </div>
-                    <button
-                        class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="prev"
-                    >
-                        <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button
-                        class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="next"
-                    >
-                        <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
 
                 <div>
