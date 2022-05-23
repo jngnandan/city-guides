@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export class Signup extends Component {
   render() {
     return (
-      <div>Signup</div>
+      <div className='flex flex-row justify-center items-center w-scree'>Signup</div>
     )
   }
 }

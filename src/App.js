@@ -10,6 +10,7 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+import NotFound from './Components/NotFound';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Signup" element={<Signup />} />
+            <Route path="*" element={<NotFound />}/>
           </Routes>
         </Router>
   );
