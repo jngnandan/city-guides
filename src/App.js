@@ -5,24 +5,31 @@ import Header from './Components/Header';
 import Signup from './Components/Signup';
 
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Routes,
+  Switch,
   Route,
   Link,
+  useParams
 } from "react-router-dom";
+import { CompatRouter } from 'react-router-dom-v5-compat';
+
 import NotFound from './Components/NotFound';
+import TourDetails from './Components/TourDetails';
 
 function App() {
   return (
-        <Router>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path="/Signup" element={<Signup />} />
-            <Route path="*" element={<NotFound />}/>
-          </Routes>
-        </Router>
+    <BrowserRouter>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/Login" component={Login} />
+        <Route path="/Signup" component={Signup} />
+        <Route path="/Tour/:id" component={TourDetails} />
+        {/* <CompatRouter path="/Tour/:id/" component={TourDetails}/> */}
+        <Route path="*" component={NotFound} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 export default App;

@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
 import Tour from '../Tour'
 import Tab from '../Tab'
 import { Oval } from 'react-loader-spinner';
+import TourDetails from '../TourDetails'
 
 const tabList = [
     {
@@ -63,7 +64,7 @@ const tourList = [
     },
     {
         id: uuidv4(),
-        tourName: 'Tour 1',
+        tourName: 'Tour 4',
         tourDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, ducimus possimus.',
         tourPrice: '$100',
         tourImage: 'http://unsplash.it/400/200?random&gravity=center',
@@ -75,7 +76,7 @@ const tourList = [
     },
     {
         id: uuidv4(),
-        tourName: 'Tour 3',
+        tourName: 'Tour 5',
         tourDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, ducimus possimus.',
         tourPrice: '$100',
         tourImage: 'http://unsplash.it/400/200',
@@ -87,7 +88,7 @@ const tourList = [
     },
     {
         id: uuidv4(),
-        tourName: 'Tour 1',
+        tourName: 'Tour 6',
         tourDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, ducimus possimus.',
         tourPrice: '$100',
         tourImage: 'http://unsplash.it/400/200?random&gravity=center',
@@ -100,25 +101,33 @@ const tourList = [
 
 ]
 
+// const BlogsData = {
+//     title: 'Blog Name',
+//     imageUrl: 'http://unsplash.it/400/200?random&gravity=center',
+//     avatarUrl: 'http://unsplash.it/400/200?random&gravity=center',
+//     author: 'Author Name',
+//     content: 'lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, ducimus possimus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, ducimus possimus.',
+// }
+
 export class Home extends Component {
     state = {
         currentTab: tabList[0].category,
+        blogsData: [],
         isLoading: true,
-        blogsData: '',
     }
 
     changeTab = (category) => {
         this.setState({ currentTab: category })
-        // console.log(category
     }
 
     componentDidMount(){
         this.getBlogsData()
     }
+
     getBlogsData = async () => {
         const response = await fetch('https://apis.ccbp.in/blogs')
         const data = await response.json()
-        console.log(data)
+        // console.log(data)
 
         const formattedData = data.map(eachItem => ({
             id: eachItem.id,
@@ -129,12 +138,13 @@ export class Home extends Component {
             topic: eachItem.topic,
         }))
         this.setState({blogsData: formattedData, isLoading: false})
+        // console.log(this.state.blogsData)
     }
 
     render(props) {
         const { currentTab, isLoading, blogsData } = this.state
-        const tourCategory = tourList.filter(eachitem => eachitem.category === currentTab)
-        console.log(isLoading)
+        // const tourCategory = tourList.filter(eachitem => eachitem.category === currentTab)
+        // console.log(isLoading)
 
         return (
             <div>
@@ -148,7 +158,7 @@ export class Home extends Component {
                             <img class="d-block w-100" src="http://loremflickr.com/1200/400/Beach" alt="Second slide"/>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="http://lorempixel.com/1200/400/nature" alt="Third slide"/>
+                            <img class="d-block w-100" src="http://loremflickr.com/1200/400/Beach" alt="Third slide"/>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -185,15 +195,17 @@ export class Home extends Component {
                             </div>
                         ) : (
                             // blogsData.map(item => <BlogItem blogData={item} key={item.id} />)
-                                <div className='flex flex-wrap mx-4'>
-                                    {tourCategory.map(eachitem => (
-                                        <Tour tourList={eachitem} key={eachitem.id} />
+                                <div className='flex flex-wrap mx-4 justify-around'>
+                                    {blogsData.map(eachitem => (
+                                        <Tour blogsData={eachitem} key={eachitem.id}/>
                                     ))}
                                 </div>
                         )}
 
-                    </div>
+                    </div>  
+                </div>
 
+                <div>
                     
                 </div>
 
