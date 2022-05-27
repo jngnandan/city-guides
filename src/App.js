@@ -2,7 +2,6 @@ import './App.css';
 import Home from './Components/Home';
 import Login from './Components/Login';
 import Header from './Components/Header';
-import Signup from './Components/Signup';
 
 import {
   BrowserRouter,
@@ -23,9 +22,9 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/Login" component={Login} />
-        <Route path="/Signup" component={Signup} />
-        <Route path="/Tour/:id" component={TourDetails} />
+        <Route exact path="/Login" component={Login} />
+        <Route exact path="/Signup" component={Login} />
+        <Route exact path="/Tour/:id" component={TourDetails} />
         {/* <CompatRouter path="/Tour/:id/" component={TourDetails}/> */}
         <Route path="*" component={NotFound} />
       </Switch>

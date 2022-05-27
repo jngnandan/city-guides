@@ -16,6 +16,7 @@
     "firebase-tools": "^11.0.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-google-login": "^5.2.2",
     "react-loader-spinner": "^6.0.0-0",
     "react-router-dom": "5.3",
     "react-router-dom-v5-compat": "^6.3.0",
