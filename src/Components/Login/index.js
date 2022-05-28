@@ -1,14 +1,21 @@
-import React, { Component } from 'react'
+import React, { useState, Component } from "react";
+
 import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 
 const clientId = '241312776861-adcat9fecspcobkg88lkb0fpgn3544l2.apps.googleusercontent.com';
+
+
+
 
 export class Login extends Component {
     state = {
         username: '',
         password: '',
-        userInfo: {},
-        isLoggedIn: false,
+        // userInfo: {},
+        // isLoggedIn: false,
+        showLoginButton: true,
+        showLogoutButton: false,
     }
 
     onSubmitSuccess = (props) => {
@@ -57,13 +64,34 @@ export class Login extends Component {
     onFailure = (res) => {
         console.log(res)   
     }
-
-
+    
+    responseFacebook = (response) => {
+        console.log(response);
+        this.FacebookLoginPage();
+    }
+    FacebookLoginPage = () => {
+        const [showLoginButton, setLoginButton] = useState(true);
+        const [showLogoutButton, setLogoutButton] = useState(false);
+        const loginHandler = (res) => {
+            console.log("res", res.profileObj);
+            setLoginButton(false);
+            setLogoutButton(true);
+        };
+        const failureHandler = (res) => {
+            console.log("login failed", res);
+        };
+        const logoutHandler = (res) => {
+            alert("logout sucessfully");
+            setLoginButton(true);
+            setLogoutButton(false);
+        };
+    }
+    
     render() {
         return (
             <div className='flex flex-col justify-center items-center h-screen'>
 
-                <form className='w-80 h-80 shadow py-4 flex flex-col justify-center items-center h-screen'>
+                <form className='w-80 h-min py-16 shadow my-12 flex flex-col justify-center items-center h-screen'>
                     <h1 className='text-2xl py-2 font-bold'>Login</h1>
 
                     <div className='flex flex-col justify-start'>
@@ -86,6 +114,15 @@ export class Login extends Component {
                             cookiePolicy={`single_host_origin`}
                             style={{marginTop: '100px'}}
                             isSignedIn={true}/>
+                        </span>
+                        <span className="bg-gray-200 px-2 shadow h-8 rounded">
+                            <FacebookLogin
+                                appId="270794275210431"
+                                autoLoad={true}
+                                fields="name,email,picture"
+                                scope="public_profile,user_friends,user_actions.books"
+                                callback={this.responseFacebook}
+                            />
                         </span>
                     </div>
                 </form>

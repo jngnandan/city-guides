@@ -15,8 +15,10 @@ import { CompatRouter } from 'react-router-dom-v5-compat';
 
 import NotFound from './Components/NotFound';
 import TourDetails from './Components/TourDetails';
+// import firebase from "firebase";
 
 function App() {
+  // const firebaseApp = firebase.apps[0];
   return (
     <BrowserRouter>
       <Header />

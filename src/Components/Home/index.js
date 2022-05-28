@@ -141,6 +141,20 @@ export class Home extends Component {
         // console.log(this.state.blogsData)
     }
 
+// FB.getLoginStatus(function(response) {
+//         statusChangeCallback(response);
+//     });
+    
+// {
+//     status: 'connected',
+//         authResponse: {
+//         accessToken: '...',
+//             expiresIn: '...',
+//                 signedRequest: '...',
+//                     userID: '...'
+//     }
+// }
+
     render(props) {
         const { currentTab, isLoading, blogsData } = this.state
         // const tourCategory = tourList.filter(eachitem => eachitem.category === currentTab)
