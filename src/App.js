@@ -15,6 +15,8 @@ import { CompatRouter } from 'react-router-dom-v5-compat';
 
 import NotFound from './Components/NotFound';
 import TourDetails from './Components/TourDetails';
+import Blogs from './Components/Blogs';
+import Illustrations from './Components/Illustrations';
 // import firebase from "firebase";
 
 function App() {
@@ -27,7 +29,9 @@ function App() {
         <Route exact path="/Login" component={Login} />
         <Route exact path="/Signup" component={Login} />
         <Route exact path="/Tour/:id" component={TourDetails} />
+        <Route exact path="/Blogs" component={Blogs} />
         {/* <CompatRouter path="/Tour/:id/" component={TourDetails}/> */}
+        <Route exact path="/Illustrations" component={Illustrations} />
         <Route path="*" component={NotFound} />
       </Switch>
     </BrowserRouter>

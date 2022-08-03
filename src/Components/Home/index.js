@@ -7,22 +7,26 @@ import Tab from '../Tab'
 import { Oval } from 'react-loader-spinner';
 import TourDetails from '../TourDetails'
 
+import { AiOutlineArrowRight } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
+import Illustrations from '../Illustrations'
+
 const tabList = [
     {
         tabId: uuidv4(),
-        tabName: 'Students',
-        category: 'Students',
+        tabName: 'Product Design',
+        category: 'Product Design',
     },
     {
         tabId: uuidv4(),
-        tabName: 'Visitors',
-        category: 'Visitors',
+        tabName: 'Web Development',
+        category: 'Web Development',
     },
-    {
-        tabId: uuidv4(),
-        tabName: 'New Movers',
-        category: 'New Movers',
-    },
+    // {
+    //     tabId: uuidv4(),
+    //     tabName: 'Illustration',
+    //     category: 'Illustration',
+    // },
 ]
 
 const tourList = [
@@ -141,20 +145,6 @@ export class Home extends Component {
         // console.log(this.state.blogsData)
     }
 
-// FB.getLoginStatus(function(response) {
-//         statusChangeCallback(response);
-//     });
-    
-// {
-//     status: 'connected',
-//         authResponse: {
-//         accessToken: '...',
-//             expiresIn: '...',
-//                 signedRequest: '...',
-//                     userID: '...'
-//     }
-// }
-
     render(props) {
         const { currentTab, isLoading, blogsData } = this.state
         // const tourCategory = tourList.filter(eachitem => eachitem.category === currentTab)
@@ -186,15 +176,16 @@ export class Home extends Component {
                 </div>
 
                 <div>
+                    {/* Tabs */}
                     <div className='flex flex-row justify-center items-center my-4'>
                         {tabList.map(eachitem => (
                             <Tab isActive={eachitem.category === currentTab} changeTab={this.changeTab} tabList={eachitem} />
                         ))}
                     </div>
 
-                    <h1 className='text-xl font-medium mx-5 my-3'>Guides</h1>
+                    <h1 className='text-xl font-medium mx-5 my-3'>Projects</h1>
                     
-                    {/* Spinner */}
+                    {/* Spinner Blogs*/}
                     <div>
                         {isLoading ? (
                             // <Loader type="TailSpin" color="#00BFFF" height={50} width={50} />
@@ -217,6 +208,35 @@ export class Home extends Component {
                         )}
 
                     </div>  
+                    {/* Illustrations */}
+                    <h1 className='text-xl font-medium mx-5 my-3 mt-5'>Illustrations</h1>
+
+                    <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 sm:grid-cols-2 mx-6">
+                        <img
+                            className="object-cover w-full border"
+                            src="https://cdn.pixabay.com/photo/2018/05/08/14/34/lightweight-transporter-3383177__340.png"
+                        />
+                        <img
+                            className="object-cover w-full border"
+                            src="https://cdn.pixabay.com/photo/2018/05/08/14/34/lightweight-transporter-3383177__340.png"
+                        />
+                        <img
+                            className="object-cover w-full border"
+                            src="https://cdn.pixabay.com/photo/2018/05/08/14/34/lightweight-transporter-3383177__340.png"
+                        />
+                        <img
+                            className="object-cover w-full border"
+                            src="https://cdn.pixabay.com/photo/2018/05/08/14/34/lightweight-transporter-3383177__340.png"
+                        />
+                    </div>
+                    <div className='flex flex-row justify-end items-center py-3 mr-6 hover:text-blue-500'>
+                        <button className='flex flex-row justify-center items-center'>
+                            <p><Link to="/Illustrations">More</Link></p> 
+                            <p className='mx-1'><AiOutlineArrowRight /></p>
+                        </button>
+                        
+                    </div>
+
                 </div>
 
                 <div>
