@@ -4,14 +4,7 @@ export class Footer extends Component {
     render() {
         return (
             <div>
-                {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-VL6L64WDBC"></script>
-            <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-
-                gtag('config', 'G-VL6L64WDBC');
-            </script> */}
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-VL6L64WDBC"></script>
 
                 <div className='bg-black h-52 w-full'>
                     <div className='text-white flex flex-row justify-around items-start m-12 pt-12'>
