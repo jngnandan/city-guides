@@ -151,9 +151,9 @@ export class Home extends Component {
         // console.log(isLoading)
 
         return (
-            <div>
+            <div className="mx-5">
                 {/* Header */}
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                {/* <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img class="d-block w-100" src="http://unsplash.it/1200/400?gravity=center" alt="First slide"/>
@@ -173,6 +173,22 @@ export class Home extends Component {
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
+                </div> */}
+
+                <div className="my-3 mt-5">
+                    <h1 className="text-4xl text-gray-700 font-bold">Hi! Friends👋 </h1>
+                    <p className="text-3xl pt-2">I'm Nandan, I'm <span className="text-blue-500 underline">UX Designer</span> and <span className="text-blue-500 underline">Front Developer</span></p>
+                    <p className="text-xl pt-3">On this site we explore different processes in UX and best practices in Development and some side projects I do. I share weekly newsletters for in various tech topics. Signup below in the community of friendly readers.</p>
+                </div>
+                
+                {/* Subscribe */}
+                <div>
+                <form className="flex flex-row justify-center items-center mt-2 mb-5">
+                        <div className="w-50 outline outline-1 rounded-sm outline-gray-500 flex flex-row justify-between items-center">
+                            <input className="pl-2" placeholder="Enter your Email"/>
+                            <button className="py-1.5 hover:bg-blue-500 font-medium bg-blue-400 w-28  rounded-sm text-white">Subscribe</button>
+                    </div>
+                </form>
                 </div>
 
                 <div>
@@ -183,7 +199,7 @@ export class Home extends Component {
                         ))}
                     </div>
 
-                    <h1 className='text-xl font-medium mx-5 my-3'>Projects</h1>
+                    <h1 className='text-xl font-medium my-3'>Projects</h1>
                     
                     {/* Spinner Blogs*/}
                     <div>
@@ -208,8 +224,35 @@ export class Home extends Component {
                         )}
 
                     </div>  
+                   
+                   <div>
+                          <h1 className='text-3xl font-bold my-3'>Explore</h1>
+                            {/* Blogs */}
+                          <Link to="/blogs" className="flex flex-row justify-start items-center align-items bg-gray-100 p-4 mt-4">
+                            <h1 className="text-4xl px-4">📚</h1>
+                            <div>
+                                <h1 className="text-md font-bold text-sm">Book Summaries & Notes</h1>
+                                <p>High lights & Notes from some of my faviourite books.</p>
+                            </div>
+                          </Link>
+                            {/* Books */}
+                        <Link to="/books" className="flex flex-row justify-start items-center align-items bg-gray-100 p-4 mt-4">
+                            <h1 className="text-4xl px-4">👨‍💻</h1>
+                            <div>
+                                <h1 className="text-md font-bold text-sm">Tech Blogs</h1>
+                                <p>High lights & Notes from some of my faviourite books.</p>
+                            </div>
+                        </Link>
+                   </div>
+                    
+                    <h1 className='text-3xl font-bold my-3 pt-6'>Latest Articles</h1>
+
+                    <div>
+                        <h1></h1>
+                    </div>
+
                     {/* Illustrations */}
-                    <h1 className='text-xl font-medium mx-5 my-3 mt-5'>Illustrations</h1>
+                    {/* <h1 className='text-xl font-medium my-3 mt-5'>Illustrations</h1>
 
                     <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 sm:grid-cols-2 mx-6">
                         <img
@@ -228,14 +271,15 @@ export class Home extends Component {
                             className="object-cover w-full border"
                             src="https://cdn.pixabay.com/photo/2018/05/08/14/34/lightweight-transporter-3383177__340.png"
                         />
-                    </div>
-                    <div className='flex flex-row justify-end items-center py-3 mr-6 hover:text-blue-500'>
+                    </div> */}
+                    {/* More */}
+                    {/* <div className='flex flex-row justify-end items-center py-3 mr-6 hover:text-blue-500'>
                         <button className='flex flex-row justify-center items-center'>
                             <p><Link to="/Illustrations">More</Link></p> 
                             <p className='mx-1'><AiOutlineArrowRight /></p>
                         </button>
                         
-                    </div>
+                    </div> */}
 
                 </div>
 
@@ -245,7 +289,7 @@ export class Home extends Component {
 
                 <div>
 
-                    <div className='bg-black h-52'>
+                    <div className='bg-black h-52 w-full'>
                         <div className='text-white flex flex-row justify-around items-start m-12 pt-12'>
                             <ul className='mr-12 pt-1'>
                                 <li className='text-red-500 text-xl font-bold'>City Guides</li>

@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 export class Tour extends Component {
   render(props) {
-    const { blogsData, changeTab} = this.props
-    const {id, imageUrl, avatarUrl, author, content, title } = blogsData
+    const { blogsData, changeTab } = this.props
+    const { id, imageUrl, avatarUrl, author, content, title } = blogsData
 
     // const changeTaber = () => {
     //   changeTab(id)
@@ -20,8 +20,8 @@ export class Tour extends Component {
               <button className="text-xs outline outline-1 outline-offset-0.5 px-1 px-2 rounded-sm outline-gray-500 text-gray-500 font-semibold">Project Duration</button>
               <button className="text-xs outline outline-1 outline-offset-0.5 px-1 px-2 rounded-sm outline-gray-500 text-gray-500 font-semibold">Project Duration</button>
             </div>
-           
-            
+
+
           </div>
         </div>
       </Link>
