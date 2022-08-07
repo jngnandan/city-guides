@@ -5,13 +5,9 @@ import ReactGA from 'react-ga';
 
 import {
   BrowserRouter,
-  Routes,
   Switch,
   Route,
-  Link,
-  useParams
 } from "react-router-dom";
-import { CompatRouter } from 'react-router-dom-v5-compat';
 
 import NotFound from './Components/NotFound';
 import TourDetails from './Components/TourDetails';

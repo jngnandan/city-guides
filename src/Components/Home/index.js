@@ -11,6 +11,7 @@ import { AiOutlineArrowRight } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import Illustrations from '../Illustrations'
 import Footer from '../Footer'
+import ReactGA from 'react-ga';
 
 const tabList = [
     {
@@ -125,7 +126,7 @@ export class Home extends Component {
         this.setState({ currentTab: category })
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.getBlogsData()
     }
 
@@ -142,7 +143,7 @@ export class Home extends Component {
             author: eachItem.author,
             topic: eachItem.topic,
         }))
-        this.setState({blogsData: formattedData, isLoading: false})
+        this.setState({ blogsData: formattedData, isLoading: false })
         // console.log(this.state.blogsData)
     }
 
@@ -196,7 +197,7 @@ export class Home extends Component {
                                 </div>
                             ) : (
                                 // blogsData.map(item => <BlogItem blogData={item} key={item.id} />)
-                                <div className='grid gap-1 grid-cols-2 gap-1 md:grid-cols-3 lg: grid-cols-4'>
+                                <div className='grid gap-1 sm:grid-cols-2 gap-1 md:grid-cols-3 lg: grid-cols-4'>
                                     {blogsData.map(eachitem => (
                                         <Tour blogsData={eachitem} key={eachitem.id} />
                                     ))}
@@ -225,18 +226,18 @@ export class Home extends Component {
                                     </div>
                                 </Link>
                             </div>
-                            
+
                         </div>
 
                         <h1 className='text-3xl font-bold my-3 pt-6'>Latest Articles</h1>
 
-                        
 
-                      
+
+
 
                     </div>
                 </div>
-                
+
                 {/* Footer */}
                 <Footer />
             </div>
