@@ -197,7 +197,7 @@ export class Home extends Component {
                                 </div>
                             ) : (
                                 // blogsData.map(item => <BlogItem blogData={item} key={item.id} />)
-                                <div className='grid gap-1 sm:grid-cols-2 gap-1 md:grid-cols-3 lg: grid-cols-4'>
+                                <div className='grid sm:grid-cols-2 gap-1 md:grid-cols-3 lg:grid-cols-4'>
                                     {blogsData.map(eachitem => (
                                         <Tour blogsData={eachitem} key={eachitem.id} />
                                     ))}
