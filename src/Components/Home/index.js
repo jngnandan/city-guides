@@ -167,7 +167,7 @@ export class Home extends Component {
                         <form className="flex flex-row justify-start items-center mt-2 mb-5 pl-2">
                             <div className="outline outline-1 rounded-sm outline-gray-900 flex flex-row justify-between items-center">
                                 <input className="pl-2" placeholder="Enter your Email" />
-                                <button className="py-1.5 hover:bg-purple-600 font-medium bg-purple-900 px-2 rounded-sm text-white">Subscribe</button>
+                                <button className="pb-2 hover:bg-purple-600 font-medium bg-purple-900 px-2 rounded-sm text-white">Subscribe</button>
                             </div>
                         </form>
                     </div>
@@ -197,7 +197,7 @@ export class Home extends Component {
                                 </div>
                             ) : (
                                 // blogsData.map(item => <BlogItem blogData={item} key={item.id} />)
-                                <div className='grid sm:grid-cols-2 gap-1 md:grid-cols-3 lg:grid-cols-4'>
+                                <div className='grid grid-cols-2 gap-1 md:grid-cols-3 '>
                                     {blogsData.map(eachitem => (
                                         <Tour blogsData={eachitem} key={eachitem.id} />
                                     ))}

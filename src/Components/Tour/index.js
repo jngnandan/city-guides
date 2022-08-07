@@ -16,8 +16,8 @@ export class Tour extends Component {
             <img className='rounded-top' src={imageUrl} />
             <div className="px-3 pt-2">
               <h1 className="text-sm span-y-2 text-gray-600 font-semibold">{title}</h1>
-              <div className="flex mt-4">
-                <p className='text-xs text-white px-2 py-1 rounded-sm bg-gray-400 font-semibold'>{author}</p>
+              <div className="flex">
+                <p className='text-xs text-white px-2 my-3 py-1 rounded-sm bg-gray-400 font-semibold'>{author}</p>
                 {/* <button className="text-xs outline outline-1 outline-offset-0.5 px-1 px-2 rounded-sm outline-gray-500 text-gray-500 font-semibold">Project Duration</button>
               <button className="text-xs outline outline-1 outline-offset-0.5 px-1 px-2 rounded-sm outline-gray-500 text-gray-500 font-semibold">Project Duration</button> */}
               </div>

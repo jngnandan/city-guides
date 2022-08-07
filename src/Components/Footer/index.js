@@ -9,15 +9,15 @@ export class Footer extends Component {
 
                 <div className='bg-black h-52 w-full'>
                     <div className='text-white flex flex-row justify-around items-start m-12 pt-12'>
-                        <ul className='mr-12 pt-1'>
+                        <ul className='pt-1'>
                             <li className='text-red-500 text-xl font-bold'>City Guides</li>
                         </ul>
 
-                        <ul className='mr-8'>
+                        {/* <ul className='mr-8'>
                             <li className='py-2 text-sm'>About</li>
                             <li className='py-2 text-sm'>Privacy</li>
                             <li className='py-2 text-sm'>Terms & Conditions</li>
-                        </ul>
+                        </ul> */}
 
                         <ul className='mr-8'>
                             <li className='py-2 text-sm'>Compliances</li>
